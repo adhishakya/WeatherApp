@@ -1,0 +1,344 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 2px black;
+}
+
+html {
+  height: 100%;
+}
+
+/* Searchbar  */
+.searchBar {
+  display: flex;
+  justify-content: center;
+  margin: 2.4vh;
+  margin-left: 6.7vw;
+  padding: 3vh;
+}
+
+/* Searchbar field  */
+.searchBar input {
+  width: 22vw;
+  height: 7vh;
+  font-size: 30px;
+  outline: 0;
+  border-width: 0 0 5px;
+  color: #ffffff;
+  border-color: rgb(255, 255, 255);
+  background: transparent;
+}
+
+/* Displaying City Name Instruction  */
+.searchBar input::placeholder {
+  color: rgb(255, 255, 255);
+}
+
+/* When the search field is clicked on */
+.searchBar input:focus::placeholder {
+  color: rgb(182, 182, 182);
+  transition: linear 0.2s;
+}
+
+/* Placeholder disappearing condition  */
+.searchBar input:-ms-keyboard-active::placeholder {
+  color: transparent;
+  transition: linear 0.2s;
+}
+
+/* Search button  */
+.searchBar button {
+  background: none;
+  width: 6vw;
+  height: 8vh;
+  border: none;
+}
+
+/* Magnifying glass  */
+.searchBar button img {
+  width: 3.5vw;
+  height: 7.5vh;
+  cursor: pointer;
+}
+
+/* Empty input button that appears while searching */
+input[type="search"]::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+  height: 1.3em;
+  width: 1.3em;
+  background: url(images/icons/cancel.svg);
+  cursor: pointer;
+}
+
+/* First Letter of the weather condition appears capital  */
+#weatherCondition::first-letter {
+  text-transform: capitalize;
+}
+
+/* Main container  */
+.container1 {
+  background: linear-gradient(
+    to right bottom,
+    rgba(221, 221, 221, 0.05),
+    rgba(204, 204, 204, 0.3)
+  );
+  display: flex;
+  flex-direction: column;
+  margin: 3vh;
+  margin-left: 13.6vw;
+  height: 40vh;
+  width: 73vw;
+  border-radius: 15px;
+  backdrop-filter: blur(50px);
+  border: solid 1.3px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.04);
+}
+
+/* Name of the searched city  */
+.container1 #cityName {
+  position: relative;
+  left: 3.9vw;
+  top: 5vh;
+  font-size: 65px;
+}
+
+/* Temperature of the searched city  */
+.container1 #currentTemp {
+  position: relative;
+  right: -35vw;
+  bottom: 32vh;
+  width: 25vw;
+  font-size: 135px;
+}
+
+/* Temperature of the searched city in fahrenheit  */
+.container1 #currentTempF {
+  position: relative;
+  font-size: 35px;
+  left: 39vw;
+  bottom: 31vh;
+  width: 10vw;
+}
+
+/* Temperature of the searched city in Kelvin  */
+.container1 #currentTempK {
+  position: relative;
+  font-size: 35px;
+  left: 51.3vw;
+  bottom: 36.9vh;
+  width: 10vw;
+}
+
+/* Date and day of the searched city  */
+.container1 #dateAndTime {
+  position: relative;
+  left: 4.5vw;
+  top: 7.2vh;
+  font-size: 30px;
+}
+
+/* Weather type image  */
+.container1 img {
+  position: relative;
+  top: 8.6vh;
+  left: 3.5vw;
+  height: 5.5em;
+  width: 5.5em;
+}
+
+/* Weather type of the searched city  */
+.container1 #weatherCondition {
+  position: relative;
+  left: 10.3vw;
+  top: 0.3vh;
+  font-size: 30px;
+  width: 25vw;
+}
+
+/* Three boxes at the bottom */
+.container2 {
+  display: flex;
+  justify-content: space-between;
+  height: 34vh;
+  width: 73vw;
+  margin-left: 13.5vw;
+}
+
+/* Leftmost box (Pressure) */
+.container2 .press {
+  width: 23vw;
+  border-radius: 15px;
+  font-size: 30px;
+  text-align: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(221, 221, 221, 0.05),
+    rgba(204, 204, 204, 0.3)
+  );
+  backdrop-filter: blur(25px);
+  border: solid 1.3px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.04);
+}
+
+/* Pressure meter svg  */
+.container2 .press svg {
+  position: relative;
+  top: 1.8vh;
+  right: 6.3vw;
+}
+
+/* Making the needle move  */
+.container2 .press #needle {
+  animation: semi-spin 6s linear alternate infinite;
+  transform-origin: center;
+  transform-box: content-box;
+}
+
+/* Needle moving property  */
+@keyframes semi-spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(180deg);
+  }
+}
+
+/* Pressure heading  */
+.container2 .press span {
+  position: relative;
+  bottom: 9.7vh;
+  left: 3.2vw;
+  font-size: 40px;
+}
+
+/* Pressure details  */
+.container2 .press .atmosphere {
+  position: relative;
+  bottom: 3vh;
+  left: 0.19vw;
+  font-size: 32px;
+}
+
+.container2 .press .pressureDet {
+  position: relative;
+  bottom: 7.4vh;
+  left: 0.6vw;
+}
+
+/* Middle box (wind details)  */
+.container2 .wind {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 23vw;
+  border-radius: 15px;
+  font-size: 30px;
+  text-align: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(221, 221, 221, 0.05),
+    rgba(204, 204, 204, 0.3)
+  );
+  backdrop-filter: blur(25px);
+  border: solid 1.3px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.04);
+}
+
+/* Windmill svg */
+.container2 .wind svg {
+  position: relative;
+  top: 3vh;
+  right: 16.5vw;
+}
+
+/* Making the wheel spin  */
+.container2 .wind #wheel {
+  animation: spin 7s linear infinite;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+/* Wheel spin property  */
+@keyframes spin {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+/* Wind details heading  */
+.container2 .wind span {
+  position: relative;
+  bottom: 6.6vh;
+  left: 2.4vw;
+  font-size: 38px;
+}
+
+/* Wind speed  */
+.container2 .wind #windSpeed {
+  margin-right: 1vw;
+  margin-top: 1vh;
+}
+
+/* Wind direction  */
+.container2 .wind #windDirection {
+  margin-top: 0.7vh;
+  margin-right: 3vw;
+}
+
+/* Rightmost box (humidity) */
+.container2 .humid {
+  width: 23vw;
+  border-radius: 15px;
+  font-size: 30px;
+  text-align: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(221, 221, 221, 0.05),
+    rgba(204, 204, 204, 0.3)
+  );
+  backdrop-filter: blur(25px);
+  border: solid 1.3px transparent;
+  background-clip: padding-box;
+  box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.04);
+}
+
+/* Water drop svg  */
+.container2 .humid svg {
+  position: relative;
+  top: 2vh;
+  right: 6.5vw;
+}
+
+/* Making the water in the drop move  */
+.container2 .humid #water {
+  animation: wave 0.4s ease alternate infinite;
+  transform-origin: top;
+  transform-box: fill-box;
+}
+
+/* Water moving property  */
+@keyframes wave {
+  from {
+    transform: translateY(-1.8%);
+  }
+  to {
+    transform: translateY(6%);
+  }
+}
+
+/* Humidity heading  */
+.container2 .humid span {
+  position: relative;
+  bottom: 7.4vh;
+  left: 1.8vw;
+  font-size: 42px;
+}
